@@ -7,40 +7,32 @@ const express = require('express');
 // Express app
 const app = express();
 
-// Register view engine
+// register view engine
 app.set('view engine', 'ejs');
+// app.set('views', 'myviews');
 
 // Listen for requests
 app.listen(3000);
 
+// routing
 app.get('/', (req, res) => {
     const blogs = [
-        {title: 'Blog 1', snippet: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do... 1'},
-        {title: 'Blog 2', snippet: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do... 2'},
-        {title: 'Blog 3', snippet: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do... 3'},
+      {title: 'Yoshi finds eggs', snippet: 'Lorem ipsum dolor sit amet consectetur'},
+      {title: 'Mario finds stars', snippet: 'Lorem ipsum dolor sit amet consectetur'},
+      {title: 'How to defeat bowser', snippet: 'Lorem ipsum dolor sit amet consectetur'},
     ];
-    //res.send('<p><h1>Home Page</h1></p>');
-    //res.sendFile('./views/index.html', {root: __dirname});
-    res.render('index', {title: 'Homepage'});
-});
-
-app.get('/blogs/create', (req, res) => {
-    res.render('create', { title: 'Create a new blog' });
+    res.render('index', { title: 'Home', blogs });
   });
 
-app.get('/about', (req, res) => {
-    //res.send('<p><h1>About Page</h1></p>');
-    //res.sendFile('./views/about.html', {root: __dirname});
-    res.render('about', {title: 'About'});
-});
-
-// Redirects
-app.get('/about-us', (req, res) => {
-    res.redirect('/about');
-});
-
-// 404 page
-app.use((req, res) => {
-    //res.status(404).sendFile('./views/404.html', {root: __dirname});
-    res.status(404).render('404', {title: '404 Not Found'});
-});
+  app.get('/about', (req, res) => {
+    res.render('about', { title: 'About' });
+  });
+  
+  app.get('/blogs/create', (req, res) => {
+    res.render('create', { title: 'Create a new blog' });
+  });
+  
+  // 404 page
+  app.use((req, res) => {
+    res.status(404).render('404', { title: '404' });
+  });
