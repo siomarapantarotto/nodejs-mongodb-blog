@@ -7,14 +7,14 @@ const express = require('express');
 // Express app
 const app = express();
 
-// register view engine
+// Register view engine
 app.set('view engine', 'ejs');
 // app.set('views', 'myviews');
 
 // Listen for requests
 app.listen(3000);
 
-// routing
+// Routing
 app.get('/', (req, res) => {
     const blogs = [
       {title: 'Yoshi finds eggs', snippet: 'Lorem ipsum dolor sit amet consectetur'},
@@ -32,7 +32,7 @@ app.get('/', (req, res) => {
     res.render('create', { title: 'Create a new blog' });
   });
   
-  // 404 page
+  // 404 page not found
   app.use((req, res) => {
     res.status(404).render('404', { title: '404' });
   });
