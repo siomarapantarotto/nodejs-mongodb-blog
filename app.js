@@ -15,7 +15,18 @@ app.set('view engine', 'ejs');
 // Listen for requests
 app.listen(3000);
 
-// HTTP request logger middleware
+// Middleware to log request info - next allows to move to next middleware
+// This code was replaced by installing and using Morgan as bellow
+//app.use((req, res, next) => {
+//  console.log('new request was made...');
+//  console.log('host: ', req.hostname);
+//  console.log('path: ', req.path);
+//  console.log('method: ', req.method);
+//  next();
+//});
+
+// middleware & static files (CSS, images etc)
+app.use(express.static('public'))
 app.use(morgan('dev')); // logger middleware - log details of every request
 
 // Routing
