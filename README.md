@@ -34,9 +34,15 @@ Database: blog-corner
 Collection: blogs
 App User: blogcorneruser
 
-### add-blog route:
+### /add-blog route:
 
 ![image](https://github.com/siomarapantarotto/nodejs-mongodb-blog/assets/5893219/ef9d1ec7-77d8-41a0-82f4-4edc618d0c4d)
 
 ![image](https://github.com/siomarapantarotto/nodejs-mongodb-blog/assets/5893219/36333f9d-3a74-4132-9d71-c7413452bd60)
+
+### /all-blogs route:
+
+![image](https://github.com/siomarapantarotto/nodejs-mongodb-blog/assets/5893219/00728fda-02cc-4c86-ac1b-f18e3323c396)
+
+![image](https://github.com/siomarapantarotto/nodejs-mongodb-blog/assets/5893219/78141a6b-eea6-40b5-a28d-61a68fecad71)
 

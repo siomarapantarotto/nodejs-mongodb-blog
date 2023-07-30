@@ -41,7 +41,9 @@ app.use(express.static('public'))
 app.use(morgan('dev')); // logger middleware - log details of every request
 
 
-// Mongoose and Mong sandbox routes
+// Mongoose and Mongo sandbox routes
+
+// '/add-blog' - add a new blog into the database
 app.get('/add-blog', (req, res) => {
   const blog = new Blog({
     title: 'Lorem',
@@ -50,11 +52,22 @@ app.get('/add-blog', (req, res) => {
   });
   blog.save()
     .then((result) => {
-      res.send(result);
+      res.send(result); // send the blog that was added back to the browser
     })
     .catch((err) => {
       console.log(err);
     });
+});
+
+// '/all-blogs' - retrieve all blogs from the database
+app.get('/all-blogs', (req, res) => {
+  Blog.find()
+  .then((result) => {
+    res.send(result); // send all blogs retrieved back to the browser
+  })
+  .catch((err) => {
+    console.log(err);
+  });
 });
 
 
