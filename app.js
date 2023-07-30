@@ -41,47 +41,6 @@ app.use(express.static('public'))
 app.use(morgan('dev')); // logger middleware - log details of every request
 
 
-// Mongoose and Mongo sandbox routes
-
-// '/add-blog' - add a new blog into the database
-app.get('/add-blog', (req, res) => {
-  const blog = new Blog({
-    title: 'Lorem',
-    snippet: 'Lorem ipsum dolor',
-    body: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit.',
-  });
-  blog.save()
-    .then((result) => {
-      res.send(result); // send the blog that was added back to the browser
-    })
-    .catch((err) => {
-      console.log(err);
-    });
-});
-
-// '/all-blogs' - retrieve all blogs from the database
-app.get('/all-blogs', (req, res) => {
-  Blog.find()
-  .then((result) => {
-    res.send(result); // send all blogs retrieved back to the browser
-  })
-  .catch((err) => {
-    console.log(err);
-  });
-});
-
-// '/single-blog' - retrieve a specific blog from the database
-app.get('/single-blog', (req, res) => {
-  Blog.findById('64c5cf5be06f183d503e310d')
-    .then(result => {
-      res.send(result);
-    })
-    .catch(err => {
-      console.log(err);
-    });
-});
-
-
 // Routes
 app.get('/', (req, res) => {
     const blogs = [
