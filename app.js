@@ -70,6 +70,17 @@ app.get('/all-blogs', (req, res) => {
   });
 });
 
+// '/single-blog' - retrieve a specific blog from the database
+app.get('/single-blog', (req, res) => {
+  Blog.findById('64c5cf5be06f183d503e310d')
+    .then(result => {
+      res.send(result);
+    })
+    .catch(err => {
+      console.log(err);
+    });
+});
+
 
 // Routes
 app.get('/', (req, res) => {

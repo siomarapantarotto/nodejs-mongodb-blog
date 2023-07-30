@@ -46,3 +46,7 @@ App User: blogcorneruser
 
 ![image](https://github.com/siomarapantarotto/nodejs-mongodb-blog/assets/5893219/78141a6b-eea6-40b5-a28d-61a68fecad71)
 
+### /single-blog route:
+
+![image](https://github.com/siomarapantarotto/nodejs-mongodb-blog/assets/5893219/1cbb15b5-0691-416c-b100-cbe0e10f6607)
+
