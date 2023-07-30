@@ -65,6 +65,15 @@
         }
 
         /* index styles */
+        .blogs a{
+            display: block;
+            margin: 40px 0;
+            padding-left: 30px;
+            border-left: 4px solid #00AE9D;
+          }
+          .blogs a:hover h3{
+            color: #00AE9D;
+          }
 
         /* about styles */
 
