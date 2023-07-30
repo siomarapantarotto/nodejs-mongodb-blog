@@ -13,16 +13,12 @@ const app = express();
 const dbURI = 'mongodb+srv://blogcorneruser:blogcornerpwd@spantarotto.ved3mjt.mongodb.net/blog-corner?retryWrites=true&w=majority';
 //mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }); // to disable deprecation warn if it happens
 mongoose.connect(dbURI)
-  .then((result) => console.log('connected to the blog-corner database at Cloud MongoDB'))
+  .then((result) => app.listen(3000))
   .catch((err) => console.log('err: ', err));
-
 
 // Register view engine to implement templates
 app.set('view engine', 'ejs');
 // app.set('views', 'myviews');
-
-// Listen for requests
-app.listen(3000);
 
 // Middleware to log request info - next allows to move to next middleware
 // This code was replaced by installing and using Morgan as bellow
