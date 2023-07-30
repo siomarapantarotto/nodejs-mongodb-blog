@@ -16,6 +16,9 @@ This repo cointains the "Blog Corner" web application implemented with:
 
 <b>MongoDB</b> is a super flexible NoSQL database that is a great fit for certain types of applications where a traditional, structured database might not be the best choice. 
 
+<b>Mongoose</b> is an ODM library - Object Document Mapping library. 
+
+
 ## Content
 
 - How to create an Express app / website
@@ -23,4 +26,11 @@ This repo cointains the "Blog Corner" web application implemented with:
 - How to use template engines to create HTML views
 - How to put everything together to make a simple blog site
 
-TODO...
+## MongoDB & Atlas
+
+https://cloud.mongodb.com/
+
+Database: blog-corner
+Collection: blogs
+App User: blogcorneruser
+

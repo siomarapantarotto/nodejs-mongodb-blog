@@ -4,9 +4,18 @@
 
 const express = require('express');
 const morgan = require('morgan');
+const mongoose = require('mongoose');
 
 // Express app
 const app = express();
+
+// Connect to MongoDB database
+const dbURI = 'mongodb+srv://blogcorneruser:blogcornerpwd@spantarotto.ved3mjt.mongodb.net/blog-corner?retryWrites=true&w=majority';
+//mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true }); // to disable deprecation warn if it happens
+mongoose.connect(dbURI)
+  .then((result) => console.log('connected to the blog-corner database at Cloud MongoDB'))
+  .catch((err) => console.log('err: ', err));
+
 
 // Register view engine to implement templates
 app.set('view engine', 'ejs');
