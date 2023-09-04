@@ -53,7 +53,7 @@ app.get('/', (req, res) => {
   
   // Blog routes
   app.get('/blogs', (req, res) => {
-    Blog.find().sort({ createdAt: -1 }) // display from the newest to the oldest
+    Blog.find().sort({ createdAt: -1 }) // from the newest to the oldest
       .then((result) => {
         res.render('index', { title: 'All Blogs', blogs: result })
       })
@@ -74,6 +74,10 @@ app.get('/', (req, res) => {
       });
   });
 
+  app.get('/blogs/create', (req, res) => {
+    res.render('create', { title: 'Create a new blog' });
+  });
+
   app.get('/blogs/:id', (req, res) => {
     const id = req.params.id;
     //console.log(id);
@@ -86,9 +90,18 @@ app.get('/', (req, res) => {
       });
   });
 
-  app.get('/blogs/create', (req, res) => {
-    res.render('create', { title: 'Create a new blog' });
+  app.delete('/blogs/:id', (req, res) => {
+    const id = req.params.id;
+    Blog.findByIdAndDelete(id)
+    .then(result => {
+      res.json({ redirect: '/blogs'})
+    })
+    .catch (err => {
+      console.log(err);
+    });
   });
+
+  
 
   
   // Middleware to handle 404 error
